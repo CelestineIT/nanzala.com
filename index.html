@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My President · Nanzala Nancy Siloka</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/jpeg" href="img/3.jpg" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand">For My President</div>
+      <div class="header-actions">
+        <button id="music-toggle" aria-label="Toggle background music">🎵 Music</button>
+        <button id="secret-toggle" aria-label="Open the secret message">✨ Secret</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <p class="greeting">Hi My Love 👋</p>
+        <h1>A small corner of the internet for Nanzala Nancy Siloka</h1>
+        <p class="hero-subtext">
+          Draped in the calm of white—the color that feels like home—this space keeps our intentional love alive through long talks and unending phone calls.
+        </p>
+        <div class="hero-actions">
+          <a class="pill" href="#letter">💌 Read my letter</a>
+          <a class="pill" href="#memories">📸 Our memories</a>
+          <a class="pill" href="#timeline">🕰️ Our timeline</a>
+          <button id="theme-toggle" class="pill" aria-label="Toggle light or dark theme">💡 Light</button>
+        </div>
+      </section>
+
+      <section class="ticker-shell" aria-label="Wish list ticker">
+        <div class="ticker">
+          <span>Wish list:</span>
+          <span id="wishlist-text">Carve quiet weekend getaways with you.</span>
+        </div>
+      </section>
+
+      <section id="ritual-carousel" class="card ritual-card">
+        <div class="section-heading">
+          <h2>Mini ritual</h2>
+        </div>
+        <p class="playlist-subtext">Rotate through a gentle action to keep the day intentional.</p>
+        <div class="ritual-text" id="ritual-text">Brew a cup of calm and send her a thought.</div>
+        <button id="ritual-next" class="pill" type="button">Next ritual</button>
+      </section>
+
+      <section id="daily-verse" class="card verse-card">
+        <div class="section-heading">
+          <h2>Daily Bible Motivation</h2>
+        </div>
+        <p class="playlist-subtext">A verse to keep the heart steady before the next long call.</p>
+        <div class="verse-content">
+          <blockquote id="verse-text">Let love be genuine.</blockquote>
+          <span id="verse-reference">Romans 12:9</span>
+        </div>
+        <button id="verse-refresh" class="pill" type="button">New encouragement</button>
+      </section>
+
+      <section id="music-player" class="card music-player-card">
+        <div class="section-heading">
+          <h2>Soundtrack for Us</h2>
+        </div>
+        <p class="playlist-subtext">Play the melody that matches our calm, intentional rhythm.</p>
+        <div class="player-controls">
+          <button id="player-play" type="button" class="pill">Play music</button>
+          <div class="track-meta">
+            <p id="track-name">Loading...</p>
+            <small id="track-status">Paused</small>
+          </div>
+          <div class="player-progress" aria-label="Track progress">
+            <span id="track-progress"></span>
+          </div>
+          <div class="volume-control">
+            <label for="volume-slider">Volume</label>
+            <input id="volume-slider" type="range" min="0" max="1" step="0.01" />
+          </div>
+        </div>
+      </section>
+
+      <section id="gratitude" class="card gratitude-card">
+        <div class="section-heading">
+          <h2>Gratitude log</h2>
+        </div>
+        <p class="playlist-subtext">A short note you can write before sleep so the heart remembers.</p>
+        <div class="gratitude-input">
+          <textarea id="gratitude-input" rows="2" placeholder="Today I loved how..."></textarea>
+          <button id="gratitude-add" class="pill" type="button">Save</button>
+        </div>
+        <ul id="gratitude-list" class="gratitude-list"></ul>
+      </section>
+
+      <section id="countdown" class="card countdown-card">
+        <div class="section-heading">
+          <h2>Countdown to our next call</h2>
+        </div>
+        <p id="countdown-display" class="countdown-display">Setting the scene for our next connection…</p>
+        <div class="countdown-form">
+          <label>
+            <span>Set a call date</span>
+            <input id="countdown-input" type="datetime-local" />
+          </label>
+          <button id="countdown-set" class="pill" type="button">Save</button>
+        </div>
+      </section>
+
+      <section id="shared-playlist" class="card shared-playlist-card">
+        <div class="section-heading">
+          <h2>Shared Playlist</h2>
+        </div>
+        <p class="playlist-subtext">Drop a title or mood and it stays queued for our next listen.</p>
+        <ul id="shared-playlist-list" class="shared-playlist-list"></ul>
+        <div class="shared-playlist-input">
+          <input id="shared-playlist-input" type="text" maxlength="70" placeholder="Add a track or vibe" />
+          <button id="shared-playlist-add" class="pill" type="button">Add</button>
+        </div>
+      </section>
+
+      <section id="checklist" class="card checklist-card">
+        <div class="section-heading">
+          <h2>Morning call prep</h2>
+        </div>
+        <div class="checklist-items">
+          <label><input type="checkbox" data-task="voiceNote" /> Send her a voice note</label>
+          <label><input type="checkbox" data-task="readVerse" /> Read a verse before calling</label>
+          <label><input type="checkbox" data-task="shareCoffee" /> Share a cozy coffee screenshot</label>
+        </div>
+        <button id="checklist-reset" class="pill" type="button">Reset checklist</button>
+      </section>
+
+      <section id="distance" class="card distance-card">
+        <div class="section-heading">
+          <h2>Distance dashboard</h2>
+        </div>
+        <p class="playlist-subtext">Hours since the last call</p>
+        <p id="distance-display" class="distance-display"></p>
+        <button id="distance-mark" class="pill" type="button">Mark call made now</button>
+      </section>
+
+      <section id="journal" class="card journal-card">
+        <div class="section-heading">
+          <h2>Shared journal</h2>
+        </div>
+        <p class="playlist-subtext">Drop a sentence; the latest five entries stay cozy.</p>
+        <ul id="journal-list" class="journal-list"></ul>
+        <textarea id="journal-input" rows="2" placeholder="A memory from today..."></textarea>
+        <button id="journal-add" class="pill" type="button">Save entry</button>
+      </section>
+
+      <section id="mood" class="card mood-card">
+        <div class="section-heading">
+          <h2>Mood meter</h2>
+        </div>
+        <p class="playlist-subtext">Slide to match the calm, from restful to radiant.</p>
+        <input id="mood-slider" type="range" min="0" max="100" value="50" />
+        <p id="mood-label" class="mood-label">Balanced glow</p>
+      </section>
+
+      <section id="origin" class="card origin-card">
+        <div class="section-heading">
+          <div>
+            <h2>When the world slowed</h2>
+            <p class="origin-subtext">
+              That church morning wasn’t mine—I was weary, the day slipping sideways—but the moment I saw you the room quieted, our conversation started without pressure, and everything felt as if it had fallen into place.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="letter" class="card">
+        <div class="section-heading">
+          <h2>Love Letter</h2>
+          <button id="vault-open" class="pill" type="button">♥ Vault</button>
+          <label class="author-input">
+            <span>Author name</span>
+            <input type="text" id="author-input" maxlength="30" aria-label="Author name" />
+          </label>
+        </div>
+        <article>
+          <p>My President,</p>
+          <p>
+            Every time I hear your voice it feels like the world slows into a warm room just for us. Our long conversations stretch across afternoons and late nights, always finding new corners of ourselves and new stories to share.
+          </p>
+          <p>
+            Those late-night calls somehow become the easiest, most endless moments—safe, honest, and patient. Talking with you feels like home, no matter how far apart we are.
+          </p>
+          <p>
+            I am grateful for every pause, every laugh, and the way our connection keeps growing, steady as the tide.
+          </p>
+          <p class="send-off">
+            — Yours, <span id="letter-author">Celestine</span>
+          </p>
+        </article>
+      </section>
+
+      <div class="streak-badge" id="streak-badge">
+        <span class="streak-label">Call streak</span>
+        <strong id="streak-count">0</strong>
+        <p class="streak-subtext">Days we’ve stayed close through voice and patience.</p>
+      </div>
+
+      <section id="memories" class="card">
+        <div class="section-heading">
+          <h2>Our Conversations</h2>
+          <p>Long talks, unending phone calls, and never running out of things to say.</p>
+          <div class="memory-actions">
+            <button id="add-photos" aria-label="Add photos">Add photos</button>
+            <input id="photo-input" type="file" accept="image/*" multiple hidden />
+          </div>
+        </div>
+        <div class="photo-grid" id="photo-grid"></div>
+      </section>
+
+      <section id="memory-creator" class="card memory-card">
+        <div class="section-heading">
+          <h2>Create a memory</h2>
+        </div>
+        <p class="playlist-subtext">Upload pictures, videos, songs, or jot a note—each entry stays right here.</p>
+        <div class="memory-form">
+          <input id="memory-title" type="text" placeholder="Title or feeling" maxlength="60" />
+          <textarea id="memory-notes" rows="2" placeholder="Leave a note or memory detail"></textarea>
+          <label class="memory-file-label">
+            <span>Attach photo, video, or song (optional)</span>
+            <input id="memory-file" type="file" accept="image/*,video/*,audio/*" />
+          </label>
+          <button id="voice-note-open" class="pill" type="button">🎙️ Voice note prompt</button>
+          <button id="memory-save" class="pill" type="button">Save memory</button>
+        </div>
+        <div id="memory-list" class="memory-list"></div>
+      </section>
+
+      <section id="memory-spotlight" class="card memory-spotlight-card">
+        <div class="section-heading">
+          <h2>Latest memory</h2>
+        </div>
+        <p class="playlist-subtext">The most recent moment you captured.</p>
+        <div class="memory-spotlight" id="memory-spotlight-content">
+          <p class="muted">Create a memory and it will appear here.</p>
+        </div>
+      </section>
+
+      <div id="photo-modal" class="photo-modal hidden" aria-hidden="true">
+        <div class="photo-modal-overlay" id="photo-modal-overlay"></div>
+        <div class="photo-modal-content" role="dialog" aria-modal="true">
+          <img id="photo-modal-image" alt="Selected memory" />
+          <button id="photo-modal-close" aria-label="Close photo view">Close</button>
+        </div>
+      </div>
+
+      <section id="timeline" class="card timeline">
+        <div class="section-heading">
+          <h2>Our Timeline</h2>
+        </div>
+        <div class="timeline-entries" id="timeline-entries"></div>
+        <div class="timeline-add">
+          <input id="timeline-input" type="text" placeholder="Add a new milestone" maxlength="60" />
+          <button id="timeline-add" class="pill" type="button">Add milestone</button>
+        </div>
+      </section>
+
+      <section id="playlist" class="card playlist-card">
+        <div class="section-heading">
+          <h2>Promise Playlist</h2>
+        </div>
+        <p class="playlist-subtext">Short vows that play softly any time we think of us.</p>
+        <div class="playlist-columns">
+          <div class="playlist-column">
+            <h3>Celestine's Promises</h3>
+            <ul class="playlist-list" id="playlist-defaults">
+              <li>🎧 I promise to text you the songs that sound like home.</li>
+              <li>✍️ I promise one spontaneous love letter each month.</li>
+              <li>🕯️ I promise a candlelit call when the distance feels heavy.</li>
+              <li>🗺️ I promise to plan a trip where we only speak in whispers.</li>
+            </ul>
+          </div>
+          <div class="playlist-column">
+            <h3>My Own Promise</h3>
+            <ul class="playlist-list" id="playlist-custom"></ul>
+            <div class="playlist-input">
+              <input id="playlist-input" type="text" maxlength="80" placeholder="Write a promise for us" />
+              <button id="playlist-add" type="button">Add</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="today" class="card today-card">
+        <div class="section-heading">
+          <h2>Us Today</h2>
+        </div>
+        <p class="today-date" id="today-date"></p>
+        <p class="today-note" id="today-note"></p>
+      </section>
+
+      <section id="milestones" class="card milestones">
+        <div class="section-heading">
+          <h2>Our Milestones</h2>
+        </div>
+        <p class="milestones-subtext">Each one is a promise we make together.</p>
+        <ol class="milestone-list">
+          <li><strong>1.</strong> Get her driver’s license and celebrate that freedom with every mile.</li>
+          <li><strong>2.</strong> Open a business together so our dreams grow in every shared decision.</li>
+          <li><strong>3.</strong> Keep growing—personally, emotionally, creatively—as long as it takes.</li>
+          <li><strong>4.</strong> Buy those Mercedes-Benz cars we imagine cruising in, sleek and patient.</li>
+        </ol>
+      </section>
+
+      <section id="objectives" class="card objectives-card">
+        <div class="section-heading">
+          <h2>Shared Objectives</h2>
+        </div>
+        <p class="milestones-subtext">Daily intentions that guide every choice.</p>
+        <ul class="objective-list">
+          <li>🕊️ Spiritual growth—aligning our hearts through prayers, gratitude, and calm reflections.</li>
+          <li>💼 Financial stability—building smart habits so we can dream without worry.</li>
+          <li>✈️ Travel together—collecting new skies and quiet corners across the map.</li>
+        </ul>
+      </section>
+
+      <section id="reasons" class="card">
+        <div class="section-heading">
+          <h2>Random Love Reasons</h2>
+          <p>Tap the heart for a reason I love you.</p>
+        </div>
+        <div class="reason-display">
+          <button id="reason-heart" class="heart-button" aria-label="Show love reason">❤️</button>
+          <p id="reason-text" class="reason-text">Because our connection feels effortless, even across miles.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div id="floating-hearts" aria-hidden="true"></div>
+
+  <div id="secret-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="secret-title">
+      <h3 id="secret-title">A quiet promise</h3>
+      <p id="secret-text"></p>
+      <button id="modal-close" aria-label="Close secret message">Close</button>
+    </div>
+  </div>
+  <div id="voice-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-overlay" id="voice-overlay"></div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="voice-title">
+      <h3 id="voice-title">Voice note prompt</h3>
+      <label>
+        Capture a quick thought
+        <textarea id="voice-input" rows="3" placeholder="Share the feeling or topic you want to voice"></textarea>
+      </label>
+      <button id="voice-save" class="pill" type="button">Save note</button>
+      <div id="voice-list" class="vault-list"></div>
+      <button id="voice-close" class="pill" type="button">Close</button>
+    </div>
+  </div>
+  <div id="gratitude-toast" class="gratitude-toast hidden" role="status">
+    <p id="gratitude-toast-text"></p>
+    <button id="gratitude-toast-dismiss" class="pill" type="button">Send gratitude</button>
+  </div>
+  <div id="vault-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-overlay" id="vault-overlay"></div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="vault-title">
+      <h3 id="vault-title">Love letter vault</h3>
+      <textarea id="vault-input" rows="4" placeholder="Write a longer note..."></textarea>
+      <button id="vault-save" class="pill" type="button">Save letter</button>
+      <div id="vault-list" class="vault-list"></div>
+      <button id="vault-close" class="pill" type="button">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
